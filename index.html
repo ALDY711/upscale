@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Upscaler</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Image Upscaler</h1>
+            <p>Enhance your images with state-of-the-art AI models</p>
+        </header>
+
+        <main>
+            <div class="upload-section" id="upload-area">
+                <div class="upload-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drag & Drop or Click to Upload</h3>
+                    <p>Supports JPG, PNG, WEBP</p>
+                    <input type="file" id="file-input" hidden accept="image/*">
+                </div>
+            </div>
+
+            <div class="controls">
+                <label for="model-select">Select Model:</label>
+                <select id="model-select">
+                    <option value="RealESRGAN_x4plus">RealESRGAN x4 Plus (General)</option>
+                    <option value="RealESRGAN_x4plus_anime_6B">RealESRGAN x4 Plus Anime 6B (Anime)</option>
+                </select>
+                <button id="upscale-btn" disabled>Upscale Image</button>
+            </div>
+
+            <div class="loading-overlay" id="loading">
+                <div class="spinner"></div>
+                <p>Upscaling... This may take a while.</p>
+            </div>
+
+            <div class="result-section" id="result-area" style="display: none;">
+                <div class="image-container">
+                    <div class="image-wrapper original">
+                        <span class="label">Original</span>
+                        <img id="original-image" src="" alt="Original">
+                    </div>
+                    <div class="image-wrapper result">
+                        <span class="label">Upscaled (x4)</span>
+                        <img id="result-image" src="" alt="Upscaled">
+                    </div>
+                </div>
+                <a id="download-btn" href="#" download class="btn-download">Download Upscaled Image</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>
