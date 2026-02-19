@@ -2,12 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // GANTI URL INI DENGAN URL HUGGING FACE SPACE ANDA SETELAH DEPLOY
     // Contoh: const API_BASE_URL = 'https://username-space-name.hf.space';
     // Untuk testing lokal, gunakan 'http://localhost:7860'
-    const API_BASE_URL = 'https://aldyy1-upscale.hf.space';
+    const API_BASE_URL = 'http://localhost:7860';
 
     const uploadArea = document.getElementById('upload-area');
     const fileInput = document.getElementById('file-input');
     const upscaleBtn = document.getElementById('upscale-btn');
     const modelSelect = document.getElementById('model-select');
+    const scaleSelect = document.getElementById('scale-select');
     const loadingOverlay = document.getElementById('loading');
     const resultArea = document.getElementById('result-area');
     const originalImage = document.getElementById('original-image');
@@ -63,10 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             selectedFile = files[0];
             upscaleBtn.disabled = false;
 
-            // Show preview of original image (optional, implementing basic name display for now)
             const reader = new FileReader();
             reader.onload = function (e) {
-                // Could update a preview here if desired
                 console.log('File selected:', selectedFile.name);
             }
             reader.readAsDataURL(selectedFile);
@@ -79,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData();
         formData.append('image', selectedFile);
         formData.append('model', modelSelect.value);
+        formData.append('scale', scaleSelect.value);
 
         loadingOverlay.style.display = 'flex';
         upscaleBtn.disabled = true;
