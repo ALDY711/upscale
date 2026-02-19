@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // GANTI URL INI DENGAN URL HUGGING FACE SPACE ANDA SETELAH DEPLOY
     // Contoh: const API_BASE_URL = 'https://username-space-name.hf.space';
     // Untuk testing lokal, gunakan 'http://localhost:7860'
-    const API_BASE_URL = 'http://localhost:7860';
+    const API_BASE_URL = 'https://aldyy1-upscale.hf.space';
 
     const uploadArea = document.getElementById('upload-area');
     const fileInput = document.getElementById('file-input');
